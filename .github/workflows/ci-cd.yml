@@ -8,6 +8,7 @@ on:
 jobs:
   build-scan-deploy:
     runs-on: ubuntu-latest
+    environment: Global
 
     steps:
     - name: Checkout Code
@@ -15,7 +16,7 @@ jobs:
 
     # ------------------ SONARQUBE ------------------
     - name: SonarQube Scan
-      uses: SonarSource/sonarcloud-github-action@master
+      uses: SonarSource/sonarcloud-github-action@v2
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
